@@ -1,0 +1,21 @@
+1. daemon
+2. cache file result
+3. file dir struct:
+    ./cluster_2336
+        ./tombstone
+            user
+            email
+            'current server time'
+            lease(base on current sever system time,
+                  client will receive how many time left, and apply to client's local time.)
+4. move tombstone to tombstone_user_date
+5. tar.gz them weekly
+6. grpc server
+
+    1. user/email , lease time, request release lease, release to whom,
+    2. return:
+        if success:
+            cluster info
+            lease date
+        else:
+            next available cluster in hour/date

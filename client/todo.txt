@@ -1,0 +1,10 @@
+1. grpc client
+2. single thread
+3. receive time left and apply to local time.
+
+4. optparse: config: {user email} lease time.
+                     release
+                     current cluster info (lease time, info)
+                     release to whom(if whom is requesting...)
+                     list current waiting list.
+                     request particular cluster.
