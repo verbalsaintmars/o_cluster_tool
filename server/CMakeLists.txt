@@ -7,9 +7,9 @@ add_library(ocrserver SHARED optparse.cpp io.cpp jsonparse.cpp)
 add_executable(
     server
     main.cpp)
+
 # copy ocr.json to build directory
 configure_file("ocr.json" ${CMAKE_BINARY_DIR}/server COPYONLY)
-MESSAGE(STATUS ${CMAKE_BINARY_DIR})
 # setup version/soname version
 set_target_properties(ocrserver PROPERTIES VERSION 1.0 SOVERSION 1)
 # link pthread dynamically
