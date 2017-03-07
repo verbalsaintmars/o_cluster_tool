@@ -1,5 +1,9 @@
+# local build
 build/
 bin/
+
+# vim bak
+.*.swp
 
 # Compiled Object files
 *.slo
