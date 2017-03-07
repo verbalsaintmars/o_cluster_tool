@@ -1,5 +1,4 @@
 1. git sub
-2. gflag
 3. grpc / protobuf
 4. cmake / cmake + protobuf / ninja
 5. daemon

@@ -1,10 +1,9 @@
 # ******************************
-# Copyleft 2014 Verbalsaint
+# Copyleft 2017 Verbalsaint
 # ******************************
 
 # Directories
-#SET(PROJECT_BINARY_DIR "${PROJECT_SOURCE_DIR}/build" )
-SET(PROJECT_CMAKE_FILES "${PROJECT_SOURCE_DIR}/cmakefiles")
+SET(PROJECT_CMAKE_FILES "${CMAKE_SOURCE_DIR}/cmakefiles")
 
 
 # Build release type parameters
@@ -15,10 +14,17 @@ SET(PROJECT_CMAKE_FILES "${PROJECT_SOURCE_DIR}/cmakefiles")
 SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
 SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall -O3")
 
-# RPATH
-SET(CMAKE_SKIP_BUILD_RPATH  TRUE)
-SET(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
-SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH FALSE)
+# Build RPATH Variables
+SET(CMAKE_SKIP_BUILD_RPATH  FALSE) #  Include RPATH during the build.
+SET(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE) #  Use install RPATH during build.
+SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH FALSE) # Do not expand RPATH search. aka. no --rpath-link
+
+
+# Install RPATH Variables
+SET(CMAKE_INSTALL_RPATH "\$ORIGIN/lib" "\$ORIGIN") #  the RPATH to be used when installing
+
+# Install PATH
+SET(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install")
 
 # http://www.cmake.org/pipermail/cmake/2008-January/019290.html
 # SET (CMAKE_EXE_LINKER_FLAGS
@@ -33,8 +39,3 @@ SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH FALSE)
 #IF("${isSystemDir}" STREQUAL "-1")
 #   SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
 #ENDIF("${isSystemDir}" STREQUAL "-1")
-
-# Install
-# make DESTDIR=/home/john install
-# SET(CMAKE_INSTALL_PREFIX "/tmp/vsD")
-#SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/dynlibrary")

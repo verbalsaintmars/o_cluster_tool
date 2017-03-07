@@ -1,6 +1,5 @@
-1. daemon
-2. cache file result
-3. file dir struct:
+Mar 4:
+1. create dir / file
     ./cluster_2336
         ./tombstone
             user
@@ -8,6 +7,13 @@
             'current server time'
             lease(base on current sever system time,
                   client will receive how many time left, and apply to client's local time.)
+2. cache file result
+3. load json config
+4. grpc server/client
+
+# -------------------
+
+1. daemon
 4. move tombstone to tombstone_user_date
 5. tar.gz them weekly
 6. grpc server
